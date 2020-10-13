@@ -50,4 +50,11 @@ public class LinkedHashMap<K, V> {
 		return "LinkedHashMap List { " + myBucketArray + " }";
 
 	}
+
+	public void remove(K key) {
+		int index = this.getBucketIndex(key);
+		LinkedList<K> linkedList = this.myBucketArray.get(index);
+		INode<K> tempNode = linkedList.searchNode(key);
+		linkedList.pop(tempNode);
+	}
 }
